@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
     if (err){
       res.send({error: 'can\'t find contributors'})
     } else {
-      res.send(`<ul>${names}</ul>`);
+      res.send(`<h1>Contributors:</h1><br><ul>${names}</ul>`);
     }
   })
 })
