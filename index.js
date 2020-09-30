@@ -1,5 +1,5 @@
 const express = require('express')
-const { fdatasync } = require('fs')
+const fs = require('fs')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 
