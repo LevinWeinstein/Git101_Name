@@ -7,10 +7,18 @@ const app = express()
 
 app.get("/", (req, res) => {
   fs.readdir("contributors", (err, files) => {
+
+    const names = files.map(fullName => {
+      return fullName
+      .split('-')
+      .map(name => name .replace(/\.te?xt/i, ''))
+      .join(' ')
+    }).map(person => `<li>${person}</li>`)
+      .join(' ')
     if (err){
-      res.send({error: "can't find contributors"})
+      res.send({error: 'can\'t find contributors'})
     } else {
-      res.send(files);
+      res.send(`<ul>${names}</ul>`);
     }
   })
 })
